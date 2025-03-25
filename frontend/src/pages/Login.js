@@ -9,7 +9,7 @@ function Login() {
 
     const handleLogin = async () => {
         try {
-            const res = await axios.post("http://localhost:5000/auth/login", { username, password });
+            const res = await axios.post("https://todo-list-backend-j8wi.onrender.com/auth/login", { username, password });
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("username", res.data.user.username);
             navigate("/tasks");

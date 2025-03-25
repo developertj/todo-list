@@ -18,7 +18,7 @@ function Tasks() {
         setUsername(storedUsername || "User");
 
       axios
-        .get("http://localhost:5000/tasks", {
+        .get("https://todo-list-backend-j8wi.onrender.com/tasks", {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => setTasks(res.data))
@@ -29,7 +29,7 @@ function Tasks() {
   // ✅ Add Task
   const handleAddTask = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/tasks", newTask, {
+      const res = await axios.post("https://todo-list-backend-j8wi.onrender.com/tasks", newTask, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks([...tasks, res.data]);
@@ -42,7 +42,7 @@ function Tasks() {
   // ✅ Delete Task
   const handleDeleteTask = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/tasks/${id}`, {
+      await axios.delete(`https://todo-list-backend-j8wi.onrender.com/tasks/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(tasks.filter((task) => task._id !== id));
@@ -59,7 +59,7 @@ function Tasks() {
   // ✅ Update Task in Database
   const handleUpdateTask = () => {
     axios
-      .put(`http://localhost:5000/tasks/${editTask._id}`, editTask, {
+      .put(`https://todo-list-backend-j8wi.onrender.com/tasks/${editTask._id}`, editTask, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {

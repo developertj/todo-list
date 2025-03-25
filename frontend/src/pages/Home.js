@@ -9,7 +9,7 @@ function Home() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("http://localhost:5000/tasks")
+        axios.get("https://todo-list-backend-j8wi.onrender.com/tasks")
             .then(res => setTasks(res.data))
             .catch(err => console.error(err));
     }, []);

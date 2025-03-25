@@ -9,7 +9,7 @@ function Register() {
 
     const handleRegister = async () => {
         try {
-            await axios.post("http://localhost:5000/auth/register", { username, password });
+            await axios.post("https://todo-list-backend-j8wi.onrender.com/auth/register", { username, password });
             alert("User registered successfully!");
             navigate("/login");
         } catch (err) {
