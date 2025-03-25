@@ -15,7 +15,6 @@ function Tasks() {
       navigate("/login");
     } else {
       const storedUsername = localStorage.getItem("username"); // ✅ Get username
-      console.log("Fetched Username from LocalStorage:", storedUsername); // ✅ Debugging
         setUsername(storedUsername || "User");
 
       axios
@@ -30,8 +29,6 @@ function Tasks() {
   // ✅ Add Task
   const handleAddTask = async () => {
     try {
-        console.log("Sending request to add task");
-        console.log("Token being sent:", token);
       const res = await axios.post("http://localhost:5000/tasks", newTask, {
         headers: { Authorization: `Bearer ${token}` },
       });

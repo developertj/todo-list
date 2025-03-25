@@ -15,10 +15,8 @@ router.get("/", authMiddleware, async (req, res) => {
 
 // ✅ Add a new task
 router.post("/", authMiddleware, async (req, res) => {
-    console.log("Authenticated User:", req.user);
     const { title, description } = req.body;
     const userId = req.user?.id; // Ensure userId exists
-    console.log("Extracted userId:", userId); // Log the extracted userId
     if (!userId) {
         return res.status(400).json({ message: "User ID is missing from request" });
     }
